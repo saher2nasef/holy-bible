@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import React, { useContext, useEffect, useRef, useState } from "react";
 import Header from "../Components/Header/Header";
 import { DataContext } from "../Bible_Data/Bible_Data_Context";
@@ -11,6 +12,30 @@ const Search = () => {
   let navigate = useNavigate();
   useEffect(() => {
     SetBooks(Bible);
+    // let Verses = [];
+    // Bible.filter((Book) => {
+    //   Book.chapters.filter((chapter) => {
+    //     Verses.push(
+    //       chapter.verses.filter((verse) => {
+    //         verse.text = normalize_text(verse.text);
+    //         verse.ChapterId = chapter.chapter;
+    //         verse.BookId = Book.id;
+    //         verse.BookId = Book.id;
+    //         verse.BookName = Book.arabicName;
+    //         return verse;
+    //       })
+    //     );
+    //   });
+    // });
+    // let NewVerses = [];
+    // for (let i = 0; i < Verses.length; i++) {
+    //   const element = Verses[i];
+    //   for (let x = 0; x < element.length; x++) {
+    //     const element2 = element[x];
+    //     NewVerses.push(element2);
+    //   }
+    // }
+    // console.log(NewVerses);
   }, [Bible, Books]);
 
   let SearchValue = useRef();
@@ -30,6 +55,11 @@ const Search = () => {
     }
   };
   const normalize_text = (text) => {
+    text = text.replace(/(آ|إ|أ|ٱ)/g, "ا");
+    text = text.replace(/(ة)/g, "ه");
+    // text = text.replace(/(ئ|ؤ)/g, "ء");
+    text = text.replace(/(ى)/g, "ي");
+
     //remove special characters
     text = text.replace(
       /([^\u0621-\u063A\u0641-\u064A\u0660-\u0669a-zA-Z 0-9])/g,
@@ -37,10 +67,6 @@ const Search = () => {
     );
 
     //normalize Arabic
-    text = text.replace(/(آ|إ|أ|ٱ)/g, "ا");
-    text = text.replace(/(ة)/g, "ه");
-    // text = text.replace(/(ئ|ؤ)/g, "ء");
-    text = text.replace(/(ى)/g, "ي");
 
     //convert arabic numerals to english counterparts.
     var starter = 0x660;
