@@ -1,0 +1,187 @@
+:root {
+  --FontSize: 18px;
+}
+#Dark {
+  background-color: #000;
+  min-height: 100vh;
+  color: #fff;
+}
+header#Header {
+  padding: 10px;
+  background-color: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+header#Header ul.links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0 5px;
+}
+header#Header ul.links li {
+  margin: 0 5px;
+}
+#ShowArea {
+  width: 100%;
+}
+#ShowArea .Books {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 10px;
+}
+#ShowArea .Books .Book {
+  width: 250px;
+  background-color: #eee;
+  padding: 20px;
+  margin: 5px;
+  height: 200px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+}
+#Dark #ShowArea .Books .Book {
+  background-color: #1d1d1d !important;
+  color: #fff;
+}
+#ShowArea .Books .Book h4 {
+  font-weight: 700;
+}
+#ShowArea .Books .Book span {
+  width: 50px;
+  height: 50px;
+  background: #000;
+  color: #fff;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  font-size: 22px;
+  font-weight: 900;
+}
+
+@media (max-width: 540px) {
+  #ShowArea .Books .Book {
+    width: 100%;
+    height: auto;
+    padding-bottom: 50px;
+  }
+}
+
+#Book {
+  padding: 10px;
+}
+#Book .HeaderBook {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 20px;
+  flex-direction: column;
+}
+#Book .HeaderBook h1 {
+  text-align: center;
+  font-weight: 700;
+}
+#Book .HeaderBook button {
+  margin-top: 10px;
+}
+
+#Book .Chapters {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+#Book .Chapters .Chapter {
+  width: 50px;
+  height: 50px;
+  background-color: #eee;
+  margin: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 900;
+  border-radius: 5px;
+}
+#Dark #Book .Chapters .Chapter {
+  background-color: #1d1d1d !important;
+}
+/* Chapter */
+#Chapter {
+  padding: 10px;
+}
+#Chapter .HeaderChapter {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 20px;
+  flex-direction: column;
+}
+#Chapter .HeaderChapter h1 {
+  text-align: center;
+  font-weight: 700;
+}
+#Chapter .HeaderChapter button {
+  margin-top: 10px;
+}
+#Chapter .Verses {
+  margin-top: 20px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  direction: ltr;
+  flex-direction: column;
+  counter-reset: counter2;
+  text-align: right;
+}
+#Chapter .Verses .Verse {
+  width: fit-content;
+  padding: 10px;
+  background-color: #eee;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  position: relative;
+  font-size: var(--FontSize);
+  font-weight: 600;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: row-reverse;
+  direction: rtl;
+}
+#Dark #Chapter .Verses .Verse {
+  background-color: #1d1d1d;
+}
+#Chapter .Verses .Verse.Active {
+  background-color: #07a4ff !important;
+  color: #fff;
+}
+#Chapter .Verses .Verse span {
+  font-size: var(--FontSize);
+  margin: 0 5px;
+  color: rgb(248, 52, 52);
+  font-weight: 900;
+}
+#PageNotFound {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}

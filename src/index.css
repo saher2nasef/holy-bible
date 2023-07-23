@@ -1,13 +1,32 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("./Asstes/Vazirmatn/Vazirmatn-Black.ttf");
+  src: url("./Asstes/Vazirmatn/Vazirmatn-Bold.ttf");
+  src: url("./Asstes/Vazirmatn/Vazirmatn-ExtraBold.ttf");
+  src: url("./Asstes/Vazirmatn/Vazirmatn-ExtraLight.ttf");
+  src: url("./Asstes/Vazirmatn/Vazirmatn-Light.ttf");
+  src: url("./Asstes/Vazirmatn/Vazirmatn-Medium.ttf");
+  src: url("./Asstes/Vazirmatn/Vazirmatn-Regular.ttf");
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Vazirmatn";
+}
+.Input-Box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+}
+.Input-Box label {
+  margin-bottom: 5px;
+}
+.Input-Box input {
+  padding: 10px 20px;
+  outline: 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
