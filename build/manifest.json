@@ -1,0 +1,15 @@
+{
+  "short_name": "كلمة الله",
+  "name": "Holy Bible | الكتاب المقدس",
+  "icons": [
+    {
+      "src": "Logo.png",
+      "type": "image/png",
+      "sizes": "392x392"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

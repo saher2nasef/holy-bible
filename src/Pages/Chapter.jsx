@@ -6,7 +6,7 @@ import { DataContext } from "../Bible_Data/Bible_Data_Context";
 import { ArrowBack } from "@mui/icons-material";
 import "./Main.style.css";
 import FooterController from "../Components/FooterController/FooterController";
-import Header from "../Components/Header/Header";
+
 
 const Chapter = () => {
   let { BookId, ChapterId, VerseId } = useParams();
@@ -35,8 +35,7 @@ const Chapter = () => {
   }, [BookId, Bible, ChapterId, VerseId]);
 
   return (
-    <>
-      <Header></Header>
+    <>      
       <div className="container">
         <div className="row">
           <div className="col-12">

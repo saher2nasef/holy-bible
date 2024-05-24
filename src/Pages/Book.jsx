@@ -6,7 +6,7 @@ import { DataContext } from "../Bible_Data/Bible_Data_Context";
 import "./Main.style.css";
 import { useNavigate } from "react-router-dom";
 import ArrowBack from "@mui/icons-material/ArrowBack";
-import Header from "../Components/Header/Header";
+
 
 const Book = () => {
   let { BookId } = useParams();
@@ -27,7 +27,7 @@ const Book = () => {
   };
   return (
     <>
-      <Header></Header>
+    
       <div className="container">
         <div className="row">
           <div className="col-12">

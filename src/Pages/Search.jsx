@@ -1,17 +1,17 @@
 /* eslint-disable array-callback-return */
 import React, { useContext, useEffect, useRef, useState } from "react";
-import Header from "../Components/Header/Header";
 import { DataContext } from "../Bible_Data/Bible_Data_Context";
-import DataVerses from "../Asstes/DataVerses.json";
 import { useNavigate } from "react-router-dom";
 const Search = () => {
   let {
     Data: { Bible },
   } = useContext(DataContext);
-  let [Books, SetBooks] = useState([]);
+let [Books, SetBooks] = useState([]);
+  let [ShowMessage, SetShowMessage] = useState(false);
   let navigate = useNavigate();
   useEffect(() => {
     SetBooks(Bible);
+
     // let Verses = [];
     // Bible.filter((Book) => {
     //   Book.chapters.filter((chapter) => {
@@ -41,17 +41,31 @@ const Search = () => {
   let SearchValue = useRef();
   let [Verses, SetVerses] = useState([]);
   const Search = () => {
-    console.log(DataVerses.length);
     if (SearchValue.current.value.replace(/ /g, "").length > 0) {
-      SetVerses(
-        DataVerses.filter((Verse) =>
-          Verse.text
-            .replace(/ /g, "")
-            .includes(
-              normalize_text(SearchValue.current.value.replace(/ /g, ""))
-            )
-        )
-      );
+      let VersesResult = [];
+      Bible.filter((Book) => {
+        Book.chapters.filter((chapter) => {
+          chapter.verses.filter((verse) => {
+            if (
+              normalize_text(verse.text.replace(/ /g, "")).includes(
+                normalize_text(SearchValue.current.value.replace(/ /g, ""))
+              )
+            ) {
+              verse.ChapterId = chapter.chapter;
+              verse.BookName = Book.arabicName;
+              verse.BookId = Book.id;
+              VersesResult.push(verse);
+            }
+          });
+        });
+      });
+      if (VersesResult.length > 0) {
+        SetVerses(VersesResult);
+        SetShowMessage(false);
+      } else {
+        SetVerses([]);
+        SetShowMessage(true);
+      }
     }
   };
   const normalize_text = (text) => {
@@ -84,11 +98,11 @@ const Search = () => {
   };
   return (
     <>
-      <Header></Header>
+      
       <div className="container">
         <div className="row">
           <div className="col-12">
-            <section id="Search" className="text-center p-5">
+            <section id="Search" className="text-center p-2">
               <div className="Input-Box">
                 <input
                   type="text"
@@ -104,7 +118,6 @@ const Search = () => {
               <hr />
 
               {Verses.length > 0 ? <h2>نتائج البحث {Verses.length}</h2> : ""}
-
               {Verses.map((Verse, i) => {
                 return (
                   <div
@@ -126,6 +139,7 @@ const Search = () => {
                   </div>
                 );
               })}
+              {ShowMessage && <h1>لا توجد نتائج</h1>}
             </section>
           </div>
         </div>

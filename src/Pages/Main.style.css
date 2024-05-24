@@ -1,8 +1,13 @@
 :root {
   --FontSize: 18px;
 }
+#Light {
+  background-image: linear-gradient(to bottom, #fff, #92c7cf);
+  min-height: 100vh;
+}
 #Dark {
-  background-color: #000;
+  /*  background-color: #000;*/
+  background-image: linear-gradient(to bottom, #331d2c, #3f2e3e);
   min-height: 100vh;
   color: #fff;
 }
@@ -12,6 +17,10 @@ header#Header {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  left: 0;
 }
 header#Header ul.links {
   display: flex;
@@ -23,6 +32,12 @@ header#Header ul.links {
 }
 header#Header ul.links li {
   margin: 0 5px;
+}
+header#Header ul.links li a {
+  color: #fff;
+}
+header#Header button {
+  min-width: 50px;
 }
 #ShowArea {
   width: 100%;
@@ -40,22 +55,26 @@ header#Header ul.links li {
   background-color: #eee;
   padding: 20px;
   margin: 5px;
-  height: 200px;
+  height: 100px;
   text-align: center;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   border-radius: 5px;
   position: relative;
   cursor: pointer;
 }
 #Dark #ShowArea .Books .Book {
-  background-color: #1d1d1d !important;
+  background-color: #5caeff !important;
   color: #fff;
 }
 #ShowArea .Books .Book h4 {
   font-weight: 700;
+  font-size: 18px;
+  text-align: start;
+  width: 100%;
+  padding: 10px;
+  margin: 0;
 }
 #ShowArea .Books .Book span {
   width: 50px;
@@ -66,16 +85,38 @@ header#Header ul.links li {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 20px;
   font-size: 22px;
   font-weight: 900;
 }
-
+.SearchBar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  height: 100px;
+}
+.SearchBar input {
+  width: 300px;
+  margin: auto;
+}
 @media (max-width: 540px) {
+  #ShowArea .Books .Book h4 {
+    text-align: center;
+    font-size: 21px;
+  }
   #ShowArea .Books .Book {
     width: 100%;
     height: auto;
-    padding-bottom: 50px;
+    padding-bottom: 30px;
+    justify-content: center;
+    flex-direction: column;
+  }
+  #ShowArea .Books .Book span {
+    margin-top: 20px;
+  }
+  .SearchBar input {
+    width: 100%;
   }
 }
 
@@ -119,7 +160,7 @@ header#Header ul.links li {
   border-radius: 5px;
 }
 #Dark #Book .Chapters .Chapter {
-  background-color: #1d1d1d !important;
+  background-color: #5caeff !important;
 }
 /* Chapter */
 #Chapter {
@@ -166,7 +207,7 @@ header#Header ul.links li {
   direction: rtl;
 }
 #Dark #Chapter .Verses .Verse {
-  background-color: #1d1d1d;
+  background-color: #424769;
 }
 #Chapter .Verses .Verse.Active {
   background-color: #07a4ff !important;
@@ -175,7 +216,7 @@ header#Header ul.links li {
 #Chapter .Verses .Verse span {
   font-size: var(--FontSize);
   margin: 0 5px;
-  color: rgb(248, 52, 52);
+  color: #dde6ed;
   font-weight: 900;
 }
 #PageNotFound {
@@ -184,4 +225,34 @@ header#Header ul.links li {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+
+#Developers {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 20px;
+}
+
+.App {
+  padding-top: 20px;
+  padding-bottom: 100px;
+}
+
+#Settings {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: calc(100vh - 90px);
+}
+
+#Settings hr {
+  width: 95%;
+}
+
+#Settings p {
+  font-size: var(--FontSize);
 }

@@ -30,3 +30,21 @@
   border: 1px solid #ccc;
   border-radius: 5px;
 }
+@media (max-width: 500px) {
+  #Header {
+    flex-direction: column;
+  }
+  .FontController {
+    width: fit-content;
+  }
+}
+.FontController {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 50px;
+}
+.FontController button {
+  padding: 8px 12px !important;
+}

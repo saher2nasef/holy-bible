@@ -3,9 +3,9 @@
   "name": "Holy Bible | الكتاب المقدس",
   "icons": [
     {
-      "src": "logo.png",
+      "src": "Logo.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "392x392"
     }
   ],
   "start_url": ".",

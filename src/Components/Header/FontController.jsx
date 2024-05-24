@@ -1,5 +1,5 @@
 import React from "react";
-
+import Button from '@mui/material/Button';
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 
@@ -29,20 +29,19 @@ const FontController = () => {
   };
   const SetFontSize = (Size) => {
     document.documentElement.style.setProperty("--FontSize", Size + "px");
+      localStorage.setItem("FontSize",Size);
   };
   return (
     <div className="FontController">
-      <button className="btn btn-primary mx-1 p-1" onClick={IncreaseFont}>
-        <AddIcon></AddIcon>
-      </button>
-
-      <button className="btn btn-primary mx-1 p-1" onClick={Rest}>
-        Rest
-      </button>
-
-      <button className="btn btn-primary mx-1 p-1" onClick={DecreaseFont}>
-        <RemoveIcon></RemoveIcon>
-      </button>
+            <Button variant="contained" className="py-3" color="primary" onClick={IncreaseFont}>
+                <AddIcon></AddIcon>
+            </Button>
+            <Button variant="contained" className="py-3" color="primary"  onClick={Rest}>
+                Rest
+            </Button>
+            <Button variant="contained" className="py-3" color="primary"  onClick={DecreaseFont}>
+                 <RemoveIcon></RemoveIcon>
+            </Button>
     </div>
   );
 };
